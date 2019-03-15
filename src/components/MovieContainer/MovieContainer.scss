@@ -11,11 +11,14 @@
   .MovieTitle {
     display: flex;
     justify-content: center;
-    padding: 2em;
+    padding: 1em;
+    background: #231f20;
+    box-shadow: 0px 2px 10px 0px black;
 
     h1 {
-      color:#fff;
+      color: #7d7d7d;
       margin: 0;
+      text-shadow: 0px 3px 15px black;
     }
   }
 
@@ -23,26 +26,30 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding: 2em;
+    padding: 4em;
 
     .MovieButtons {
       display: flex;
-      justify-content: space-around;
-      margin-bottom: 2em;
-      width: 100%;
+      justify-content: space-between;
+      max-width: 700px;
+      width: 70%;
+      margin: auto;
 
       button {
-        font-size: 1em;
-        padding: .5em 1em;
-        border-radius: 5px;
-        border: none;
+        font-size: 1.2em;
+        padding: 0em 1.5em;
+        line-height: 2;
+        border-radius: 2px;
+        border: solid 1px #968d70;
         outline: none;
+        color:#42413e;
         text-transform: uppercase;
         background: #D7C078;
         font-weight: bold;
         cursor: pointer;
         opacity: 1;
         transition: all .5s ease;
+        box-shadow: -1px 2px 11px 0px black;
         &:hover {
           opacity: .7
         }
@@ -50,10 +57,16 @@
     }
 
     .MovieCardContainer {
-      background:#353535;
+      background: #505050bd;
       padding: 2em;
       display: flex;
-      justify-content: space-between;
+      flex-wrap: wrap;
+      justify-content: flex-start;
+      color:#fff;
+      overflow: scroll;
+      min-height: 400px;
+      margin-top: 2em;
+      box-shadow: inset 0px 0px 10px 1px #231f20;
 
       h3 {
         margin:0;

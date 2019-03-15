@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { fetchAnything } from '../Fetch/fetchAnything.js';
 import './MovieInfo.scss';
 
 
@@ -13,7 +14,7 @@ class MovieInfo extends Component {
   }
 
   componentDidMount() {
-    fetch(`${this.props.apiUrl}/films/${this.props.movieNumber}`)
+    fetch(`https://swapi.co/api/films/${this.props.movieNumber}`)
     .then(response => response.json())
     .then(fetchData => {
       this.setState({
@@ -26,6 +27,13 @@ class MovieInfo extends Component {
       throw new Error(error);
     });
   }
+
+// Helper File Fetch Anything
+// import it have the fetch in
+
+// fetch people
+// cleaners file
+
 
   render() {
     const { movieCrawl, movieTitle, movieRelease } = this.state;

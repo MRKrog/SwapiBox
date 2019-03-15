@@ -8,7 +8,6 @@ class App extends Component {
     super();
     this.state = {
       currentUser: true,
-      apiUrl: 'https://swapi.co/api/',
       movieNumber: Math.floor(Math.random() * 7) + 1
     }
   }
@@ -20,13 +19,12 @@ class App extends Component {
   }
 
   render() {
-    const { currentUser, movieNumber, apiUrl } = this.state;
+    const { currentUser, movieNumber } = this.state;
     return (
       <div className="App">
       { currentUser
         ? <MovieContainer movieNumber={movieNumber} />
         : <MovieInfo movieNumber={movieNumber}
-                     apiUrl={apiUrl}
                      handleUser={this.handleUser}
           />
       }
