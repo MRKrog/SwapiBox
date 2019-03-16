@@ -3,34 +3,26 @@ import './Card.scss';
 import PropTypes from 'prop-types';
 
 const Card = ({ info, handleFavBtn }) => {
-  // const favState = ;
-
-
-  // let cardContent = Object.keys(props).map(content => {
-  //   console.log(props[content]);
-  //   return props[content]
-  // })
-
-  // {cardContent}
-  // {item.homeworld && <p>Homeworld: {item.homeworld}</p>}
-
-
   return (
     <div className="Card">
       <section className="Card-Title">
         <h4>{info.name}</h4>
-        <button onClick={() => handleFavBtn(info.name)} className={info.favorite ? 'activeFav' : 'inactiveFav'} >
+        <button className={info.favorite ? 'activeFav' : 'inactiveFav'}
+                onClick={() => handleFavBtn(info.name)}>
           <i className="fas fa-star"></i>
         </button>
       </section>
       <section className="Card-Body">
-        {info.homeworld && <p>Homeworld: {info.homeworld}</p>}
-        {info.species && <p>Species: {info.species}</p>}
-        {info.language && <p>Language: {info.language}</p>}
-        {info.population && <p>Population: {info.population}</p>}
-        {info.model && <p>Model: {info.model}</p>}
-        {info.class && <p>Class: {info.class}</p>}
-        {info.passenger && <p>Passengers: {info.passenger}</p>}
+        {info.homeworld && <p>Homeworld: <span>{info.homeworld}</span></p>}
+        {info.species && <p>Species: <span>{info.species}</span></p>}
+        {info.language && <p>Language: <span>{info.language}</span></p>}
+        {info.population && <p>Population: <span>{info.population}</span></p>}
+        {info.model && <p>Model: <span>{info.model}</span></p>}
+        {info.class && <p>Class: <span>{info.class}</span></p>}
+        {info.passenger && <p>Passengers: <span>{info.passenger}</span></p>}
+        {info.climate && <p>Climate: <span>{info.climate}</span></p>}
+        {info.terrain && <p>Species: <span>{info.terrain}</span></p>}
+        {info.residents && <ul>Residents: {info.residents.map(val => <li>{val}</li>) }</ul>}
       </section>
     </div>
   )

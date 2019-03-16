@@ -1,14 +1,14 @@
-.App-logo {
-  height: 300px;
-}
 
 .logo-images {
   display: block;
   position: relative;
   margin: auto;
+  img {
+    height: 300px;
+  }
 }
 
-.gear-logo {
+.loading-true {
   animation: App-logo-spin infinite 20s linear;
   z-index: 2;
 }

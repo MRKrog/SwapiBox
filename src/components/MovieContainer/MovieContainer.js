@@ -1,9 +1,15 @@
 import React, { Component } from 'react';
 import Card from '../Card/Card';
+import Button from '../Button/Button';
 import Favorite from '../Favorite/Favorite';
 import Loader from '../Loader/Loader';
+import logo from '../../images/starwars_logo.png';
+import emblem from '../../images/star_emblem.png';
+
+
+
 import { fetchAnything } from '../Fetch/fetchAnything.js';
-import { cleanPeople, getSpecies, getHomeworld, cleanVehicles, getVehicles } from '../Fetch/fetchCleaner.js';
+import { cleanPeople, getSpecies, getHomeworld, cleanVehicles, getVehicles, getAllPlanets, cleanPlanets } from '../Fetch/fetchCleaner.js';
 
 import PropTypes from 'prop-types';
 import './MovieContainer.scss';
@@ -13,6 +19,7 @@ class MovieContainer extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      loading: false,
       people: [],
       planets: [],
       vehicles: [],
@@ -22,11 +29,18 @@ class MovieContainer extends Component {
     }
   }
 
+  handleLoadStart = () => {
+    this.setState({
+      loading: true
+    })
+  }
+
   handlePeopleBtn = (btnValue) => {
+    this.handleLoadStart()
     if(this.state.people.length === 0) {
       const url = `https://swapi.co/api/people`;
       fetchAnything(url)
-      .then(species => getSpecies(species.results))
+      .then(peopleData => getSpecies(peopleData.results))
       .then(homeworld => getHomeworld(homeworld))
       .then(data => cleanPeople(data))
       .then(people => this.setState({ people: people, currCards: 'people' }))
@@ -39,6 +53,7 @@ class MovieContainer extends Component {
   }
 
   handleVehiclesBtn = () => {
+    this.handleLoadStart()
     if(this.state.vehicles.length === 0) {
       const url = `https://swapi.co/api/vehicles`;
       fetchAnything(url)
@@ -54,7 +69,19 @@ class MovieContainer extends Component {
 
 
   handlePlanetsBtn = () => {
-
+    this.handleLoadStart()
+    if(this.state.planets.length === 0) {
+      const url = `https://swapi.co/api/planets`;
+      fetchAnything(url)
+      .then(allPlanets => getAllPlanets(allPlanets.results))
+      .then(allData => cleanPlanets(allData))
+      .then(planets => this.setState({ planets: planets, currCards: 'planets' }))
+      .catch(error => error.message)
+    } else {
+      this.setState({
+        currCards: 'planets'
+      })
+    }
   }
 
 
@@ -101,7 +128,7 @@ class MovieContainer extends Component {
   }
 
   render() {
-    const { people, vehicles, favorites, currFavs, currCards } = this.state;
+    const { people, vehicles, planets, favorites, currFavs, currCards } = this.state;
 
     let cardsToDisplay;
     console.log(vehicles);
@@ -114,6 +141,13 @@ class MovieContainer extends Component {
       ))
     } else if (currCards === 'vehicles') {
       cardsToDisplay = vehicles.map((info, index) => (
+        <Card info={info}
+              handleFavBtn={this.handleFavBtn}
+              key={index}
+        />
+      ))
+    } else if (currCards === 'planets') {
+      cardsToDisplay = planets.map((info, index) => (
         <Card info={info}
               handleFavBtn={this.handleFavBtn}
               key={index}
@@ -132,7 +166,8 @@ class MovieContainer extends Component {
     return (
       <div className="MovieContainer">
         <div className="MovieTitle">
-          <h1>SWAPI-Box</h1>
+          <h3><img src={emblem} /></h3>
+          <h1><img src={logo} /></h1>
           <Favorite currFavs={currFavs}
                     viewAllFavs={this.viewAllFavs}
                     />
@@ -148,7 +183,7 @@ class MovieContainer extends Component {
             <section className="MovieCardsDisplay">
             {
               !currCards ?
-              <Loader /> :
+              <Loader loading={this.state.loading} /> :
               cardsToDisplay
             }
             </section>

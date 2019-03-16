@@ -1,16 +1,41 @@
+$font-title: 'Abel', sans-serif;
+$font-copy: 'Lato', sans-serif;
+$font-Label: 'Rajdhani', sans-serif;
+// Rajdhani
+// Barlow
+
+
 .Card {
   margin: 1%;
-  padding: 1%;
-  width: 21%;
+  width: 23%;
+  display: flex;
+  flex-direction: column;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  box-shadow: 1px 2px 8px 0px #000000a6;
   background: #404040;
+
+  @media only screen and (max-width: 1060px) {
+    width: 31%;
+  }
+
+  @media only screen and (max-width: 960px) {
+    width: 48%;
+  }
 
   .Card-Title {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding-bottom: .5em;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    background: #353031;
+    padding: 0 .75em;
+    line-height: 2em;
 
     h4 {
+      font-family: $font-title;
+      font-size: 1.2em;
       margin:0;
     }
 
@@ -20,23 +45,55 @@
       outline: none;
       font-size: 1em;
       cursor: pointer;
+      background: #8a7c50;
+      padding: 4px;
+      border-radius: 5px;
+      line-height: 0;
       transition: all .5s ease;
 
       &:hover {
         color: yellow;
       }
+
+      i {
+        font-size: .75em
+      }
     }
 
     .activeFav {
       color: yellow;
+      &:hover {
+        color: white;
+      }
     }
     .inactiveFav {
-      color: #fff;
+      color: white;
     }
   }
 
 
   .Card-Body {
+    padding: .5em .75em;
+
+    p {
+      display: flex;
+      flex-direction: column;
+      font-size: 1em;
+      letter-spacing: .05em;
+      margin: 0;
+      color:#fff;
+      font-family: $font-Label;
+
+      span {
+        color: #a7a7a7;
+        line-height: 1;
+        font-weight: 100;
+        font-size: .9em;
+        font-family: $font-copy;
+        padding-bottom: .5em;
+        padding-top: .2em;
+      }
+    }
     ul {
       padding:0;
       margin:0;
