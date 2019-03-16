@@ -1,9 +1,11 @@
-
-const fetchAnything = (data) => {
-  const fetchCall = fetch(data)
-  .then(response => response.json())
-  .catch(error => console.log(error.message))
-  return fetchCall
+const fetchAnything = (url) => {
+  return fetch(url)
+  .then(response => {
+    if(!response.ok) {
+      throw new Error('Response not ok')
+    }
+    return response.json()
+  })
 }
 
 export { fetchAnything }

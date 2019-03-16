@@ -2,28 +2,42 @@ import React from 'react';
 import './Card.scss';
 import PropTypes from 'prop-types';
 
-const Card = ({ id, name, language, species, homeworld, population, favorite, handleFavorite }) => {
-  // console.log(handleFavorite);
-  const favState = favorite ? 'activeFav' : 'inactiveFav';
+const Card = ({ info, handleFavBtn }) => {
+  // const favState = ;
+
+
+  // let cardContent = Object.keys(props).map(content => {
+  //   console.log(props[content]);
+  //   return props[content]
+  // })
+
+  // {cardContent}
+  // {item.homeworld && <p>Homeworld: {item.homeworld}</p>}
+
+
   return (
     <div className="Card">
       <section className="Card-Title">
-        <h4>{name}</h4>
-        <button onClick={() => handleFavorite(id)} className={favState}>
+        <h4>{info.name}</h4>
+        <button onClick={() => handleFavBtn(info.name)} className={info.favorite ? 'activeFav' : 'inactiveFav'} >
           <i className="fas fa-star"></i>
         </button>
       </section>
       <section className="Card-Body">
-        <ul>
-          <li><h5>Homeworld: <span>{homeworld}</span></h5></li>
-          <li><h5>Species: <span>{species}</span></h5></li>
-          <li><h5>Language: <span>{language}</span></h5></li>
-          <li><h5>Population: <span>{population}</span></h5></li>
-        </ul>
+        {info.homeworld && <p>Homeworld: {info.homeworld}</p>}
+        {info.species && <p>Species: {info.species}</p>}
+        {info.language && <p>Language: {info.language}</p>}
+        {info.population && <p>Population: {info.population}</p>}
+        {info.model && <p>Model: {info.model}</p>}
+        {info.class && <p>Class: {info.class}</p>}
+        {info.passenger && <p>Passengers: {info.passenger}</p>}
       </section>
-
     </div>
   )
+}
+
+Card.propTypes = {
+
 }
 
 export default Card;
