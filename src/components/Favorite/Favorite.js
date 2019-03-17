@@ -1,9 +1,14 @@
 import React from 'react';
 
-const Favorite = ({ currFavs, viewAllFavs }) => {
+const Favorite = ({ currFavs, currCards, viewAllFavs }) => {
+  let btnActive = 'btnActive';
+
   return (
     <div className="Favorites">
-      <button onClick={viewAllFavs}>View Favorites <span className="count">{currFavs}</span></button>
+      <button className={currCards === 'favorites' ? btnActive : ''}
+              onClick={viewAllFavs}>View Favorites
+        <span className="count">{currFavs}</span>
+      </button>
     </div>
   )
 }
