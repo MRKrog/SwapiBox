@@ -2,6 +2,16 @@
   box-sizing: border-box;
 }
 
+html, body, #root, .App {
+  height: 100%;
+}
+
 .App {
-  height: 100vh;
+  width: 100%;
+  background-image: url(../../images/stars_bg.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center top;
+  display: flex;
+  flex-direction: column;
 }
