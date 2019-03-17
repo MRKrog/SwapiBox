@@ -1,6 +1,5 @@
 import { fetchAnything } from './fetchAnything.js';
 
-
 const cleanPeople = (data) => {
   const cleanData = data.map(person => {
     return {
@@ -9,6 +8,36 @@ const cleanPeople = (data) => {
       species: person.species,
       language: person.language,
       population: person.population,
+      category: 'people',
+      favorite: false
+    }
+  })
+  return cleanData;
+}
+
+const cleanVehicles = (data) => {
+  const vehicleResults = data.map(vehicle => {
+    return {
+      name: vehicle.name,
+      model: vehicle.model,
+      class: vehicle.vehicle_class,
+      passenger: vehicle.passengers,
+      category: 'vehicles',
+      favorite: false
+    }
+  })
+  return vehicleResults;
+}
+
+const cleanPlanets = (data) => {
+  const cleanData = data.map(planet => {
+    return {
+      name: planet.name,
+      terrain: planet.terrain,
+      population: planet.population,
+      climate: planet.climate,
+      residents: planet.residents,
+      category: 'planets',
       favorite: false
     }
   })
@@ -19,7 +48,6 @@ const getSpecies = (data) => {
   const peopleResults = data.map(person => {
     return fetchAnything(person.species)
       .then(speciesData => ({ ...person, language: speciesData.language, species: speciesData.name }))
-
   })
 
   return Promise.all(peopleResults);
@@ -31,19 +59,6 @@ const getHomeworld = (data) => {
       .then(data => ({ ...person, population: data.population, homeworld: data.name }))
   })
   return Promise.all(homeResults);
-}
-
-
-const cleanVehicles = (data) => {
-  const vehicleResults = data.map(vehicle => {
-    return {
-      name: vehicle.name,
-      model: vehicle.model,
-      class: vehicle.vehicle_class,
-      passenger: vehicle.passengers
-    }
-  })
-  return vehicleResults;
 }
 
 const getAllPlanets = (data) => {
@@ -60,19 +75,6 @@ const getResidents = (data) => {
       .then(result => (result.name))
   })
   return Promise.all(residents)
-}
-
-const cleanPlanets = (data) => {
-  const cleanData = data.map(planet => {
-    return {
-      name: planet.name,
-      terrain: planet.terrain,
-      population: planet.population,
-      climate: planet.climate,
-      residents: planet.residents
-    }
-  })
-  return cleanData;
 }
 
 export { cleanPeople, getSpecies, getHomeworld, cleanVehicles, getAllPlanets, cleanPlanets }

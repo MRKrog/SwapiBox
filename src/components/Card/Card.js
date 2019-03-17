@@ -22,7 +22,7 @@ const Card = ({ info, handleFavBtn }) => {
         {info.passenger && <p>Passengers: <span>{info.passenger}</span></p>}
         {info.climate && <p>Climate: <span>{info.climate}</span></p>}
         {info.terrain && <p>Species: <span>{info.terrain}</span></p>}
-        {info.residents && <ul>Residents: {info.residents.map(val => <li>{val}</li>) }</ul>}
+        {info.residents && <ul>Residents: {info.residents.map((val, i) => <li key={i}>{val}</li>) }</ul>}
       </section>
     </div>
   )
