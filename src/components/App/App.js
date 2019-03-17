@@ -7,7 +7,7 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      currentUser: true,
+      currentUser: false,
       movieNumber: Math.floor(Math.random() * 7) + 1
     }
   }

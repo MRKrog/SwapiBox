@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { fetchAnything } from '../Fetch/fetchAnything.js';
+import PropTypes from 'prop-types';
 import './MovieInfo.scss';
 
 
@@ -14,8 +15,7 @@ class MovieInfo extends Component {
   }
 
   componentDidMount() {
-    fetch(`https://swapi.co/api/films/${this.props.movieNumber}`)
-    .then(response => response.json())
+    fetchAnything(`https://swapi.co/api/films/${this.props.movieNumber}`)
     .then(fetchData => {
       this.setState({
         movieCrawl: fetchData.opening_crawl,
@@ -27,13 +27,6 @@ class MovieInfo extends Component {
       throw new Error(error);
     });
   }
-
-// Helper File Fetch Anything
-// import it have the fetch in
-
-// fetch people
-// cleaners file
-
 
   render() {
     const { movieCrawl, movieTitle, movieRelease } = this.state;
@@ -53,6 +46,10 @@ class MovieInfo extends Component {
         </div>
       )
     }
+}
+
+MovieInfo.propTypes = {
+  movieNumber: PropTypes.number.isRequired
 }
 
 export default MovieInfo;

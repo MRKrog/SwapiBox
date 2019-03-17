@@ -29,7 +29,7 @@ const Card = ({ info, handleFavBtn }) => {
 }
 
 Card.propTypes = {
-
+  info: PropTypes.object.isRequired
 }
 
 export default Card;

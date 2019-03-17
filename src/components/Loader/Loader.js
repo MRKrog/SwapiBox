@@ -1,5 +1,7 @@
 import React from 'react';
 import './Loader.scss';
+import PropTypes from 'prop-types';
+
 import gear from '../../images/gear-logo.png';
 
 const Loader = ({ loading }) => {
@@ -9,7 +11,10 @@ const Loader = ({ loading }) => {
       <img src={gear} className={loadingClass} alt="logo" />
     </div>
   )
+}
 
+Loader.propTypes = {
+  loading: PropTypes.bool.isRequired
 }
 
 export default Loader;

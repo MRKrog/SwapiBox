@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const Favorite = ({ favAmount, viewAllFavs }) => {
   return (
@@ -8,6 +9,11 @@ const Favorite = ({ favAmount, viewAllFavs }) => {
       </button>
     </div>
   )
+}
+
+Favorite.propTypes = {
+  currCards: PropTypes.string.isRequired,
+  favAmount: PropTypes.number.isRequired
 }
 
 export default Favorite;
