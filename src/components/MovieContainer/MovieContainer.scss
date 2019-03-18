@@ -128,16 +128,6 @@ $font-Label: 'Rajdhani', sans-serif;
       max-height: 600px;
       position: relative;
 
-      &::after {
-        content:'';
-        position: absolute;
-        width: 100%;
-        bottom: 0px;
-        height: 5%;
-        left: 0;
-        background: linear-gradient(to bottom, rgba(76,76,76,0.1) 0%,rgba(43,43,43,0.75) 72%,rgba(19,19,19,1))
-      }
-
       .MovieTitleDisplay {
         position: absolute;
         z-index: 9;
@@ -162,10 +152,25 @@ $font-Label: 'Rajdhani', sans-serif;
         margin-top: 1.5em;
       }
 
-
       h3 {
         margin:0;
       }
+    }
+
+  }
+
+  .shadowBottom {
+    position: relative;
+    z-index: 999;
+
+    &::after {
+      content:'';
+      position: absolute;
+      width: 100%;
+      bottom: 0px;
+      height: 40px;
+      left: 0;
+      background: linear-gradient(to bottom, rgba(76,76,76,0.1) 0%,rgba(43,43,43,0.75) 72%,rgba(19,19,19,1))
     }
 
   }

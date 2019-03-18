@@ -26,29 +26,21 @@ describe('fetchAnything', () => {
     expect(fetch).toHaveBeenCalledWith(url);
   });
 
-  it("fetch call returns expected data", async () => {
-    // setup
-    const url = 'www.starwars.com'
-    // execution
-    const result = await fetchAnything(url)
-    expect(result).toEqual(mockData);
-  });
 
-  it("if response not ok show error", async () => {
+  it("if response not ok show error", () => {
     // setup
     const url = 'www.starwars.com';
 
     fetch = jest.fn().mockImplementationOnce(() => Promise.resolve({
       ok: false
     }));
+    // execution
+    fetchAnything(url)
+      .catch(error => {
+        // expectation
+        expect(error.message).toBe('Response not ok');
+      })
 
-    try {
-      // execution
-      await fetchAnything(url)
-    } catch (error) {
-      // expectations
-      expect(error.message).toBe('Response not ok')
-    }
   });
 
 
@@ -76,6 +68,7 @@ describe('fetchAnything', () => {
   //   expect(fetch).toHaveBeenCalledWith(url);
   // });
   //
+
   // it("fetch call returns expected data", () => {
   //   // setup
   //   const url = 'www.starwars.com'
@@ -87,20 +80,22 @@ describe('fetchAnything', () => {
   //     })
   // });
 
-  // it("if response not ok show error", () => {
+
+  // it("if response not ok show error", async () => {
   //   // setup
   //   const url = 'www.starwars.com';
   //
   //   fetch = jest.fn().mockImplementationOnce(() => Promise.resolve({
   //     ok: false
   //   }));
-  //   // execution
-  //   fetchAnything(url)
-  //     .catch(error => {
-  //       // expectation
-  //       expect(error.message).toBe('Response not ok');
-  //     })
   //
+  //   try {
+  //     // execution
+  //     await fetchAnything(url)
+  //   } catch (error) {
+  //     // expectations
+  //     expect(error.message).toBe('Response not ok')
+  //   }
   // });
 
 
