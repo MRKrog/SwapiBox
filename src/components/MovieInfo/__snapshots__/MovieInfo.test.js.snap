@@ -1,0 +1,69 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MovieInfo fetch call takes expected url 1`] = `
+<div
+  className="MovieInfo"
+>
+  <div
+    className="fade"
+  />
+  <section
+    className="star-wars"
+  >
+    <div
+      className="crawl"
+    >
+      <div
+        className="title"
+      >
+        <p>
+          Revenge of the Sith
+        </p>
+        <h1>
+          2005-05-19
+        </h1>
+      </div>
+      <p>
+        War! The Republic is crumbling nunder attacks by the ruthless Sith Lord
+      </p>
+    </div>
+  </section>
+  <button
+    className="startBtn"
+    onClick={[MockFunction]}
+  >
+    Explore Movie
+  </button>
+</div>
+`;
+
+exports[`MovieInfo should match snapshot when all data is passed correctly 1`] = `
+<div
+  className="MovieInfo"
+>
+  <div
+    className="fade"
+  />
+  <section
+    className="star-wars"
+  >
+    <div
+      className="crawl"
+    >
+      <div
+        className="title"
+      >
+        <p />
+        <h1 />
+      </div>
+      <p />
+    </div>
+  </section>
+  <button
+    className="startBtn"
+    onClick={[MockFunction]}
+  >
+    Explore Movie
+  </button>
+</div>
+`;

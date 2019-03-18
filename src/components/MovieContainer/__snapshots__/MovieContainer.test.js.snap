@@ -1,0 +1,74 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MovieContainer Should Match the Snapshot 1`] = `
+<div
+  className="MovieContainer"
+>
+  <div
+    className="MovieTitle"
+  >
+    <h3>
+      <img
+        alt="Star Wars"
+        src="star_emblem.png"
+      />
+    </h3>
+    <h1>
+      <img
+        alt="Star Wars"
+        src="starwars_logo.png"
+      />
+    </h1>
+    <Favorite
+      currCards=""
+      favAmount={0}
+      viewAllFavs={[Function]}
+    />
+  </div>
+  <div
+    className="MovieInfoContainer"
+  >
+    <section
+      className="MovieButtons"
+    >
+      <button
+        className=""
+        onClick={[Function]}
+      >
+        People
+      </button>
+      <button
+        className=""
+        onClick={[Function]}
+      >
+        Planets
+      </button>
+      <button
+        className=""
+        onClick={[Function]}
+      >
+        Vehicles
+      </button>
+    </section>
+    <section
+      className="MovieCardContainer"
+    >
+      <div
+        className="MovieTitleDisplay"
+      >
+        <h3 />
+      </div>
+      <section
+        className="MovieCardsDisplay"
+      >
+        <Loader
+          loading={false}
+        />
+      </section>
+    </section>
+    <section
+      className="shadowBottom"
+    />
+  </div>
+</div>
+`;

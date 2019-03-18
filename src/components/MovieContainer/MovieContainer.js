@@ -182,6 +182,7 @@ class MovieContainer extends Component {
             }
             </section>
           </section>
+          <section className="shadowBottom"></section>
         </div>
       </div>
     )

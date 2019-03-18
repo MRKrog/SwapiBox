@@ -1,0 +1,51 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Card should match snapshot when all data is passed correctly 1`] = `
+<div
+  className="Card"
+>
+  <section
+    className="Card-Title"
+  >
+    <h4>
+      Luke Skywalker
+    </h4>
+    <button
+      className="inactiveFav"
+      onClick={[Function]}
+    >
+      <i
+        className="fas fa-star"
+      />
+    </button>
+  </section>
+  <section
+    className="Card-Body"
+  >
+    <p>
+      Homeworld: 
+      <span>
+        Tatooine
+      </span>
+    </p>
+    <p>
+      Species: 
+      <span>
+        Human
+      </span>
+    </p>
+    <p>
+      Language: 
+      <span>
+        Galactic Basic
+      </span>
+    </p>
+    <p>
+      Population: 
+      <span>
+        200000
+      </span>
+    </p>
+  </section>
+</div>
+`;

@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { fetchAnything } from '../Fetch/fetchAnything.js';
 import PropTypes from 'prop-types';
 import './MovieInfo.scss';
 
@@ -15,7 +14,12 @@ class MovieInfo extends Component {
   }
 
   componentDidMount() {
-    fetchAnything(`https://swapi.co/api/films/${this.props.movieNumber}`)
+    this.getData();
+  }
+
+  getData = () => {
+    return fetch(`https://swapi.co/api/films/${this.props.movieNumber}`)
+    .then(response => response.json())
     .then(fetchData => {
       this.setState({
         movieCrawl: fetchData.opening_crawl,
